@@ -208,7 +208,7 @@ const Navbar = () => {
                   <div className="flex items-end w-full">
                     <div className=" flex  justify-between w-full md:px-10 pb-5 ">
                       <div>
-                        <h4 class="text-gray-400 font-semibold mb-4 hover:underline text-sm md:text-lg ">
+                        <h4 class="text-gray-400 font-semibold mb-4 hover:underline text-xs md:text-lg ">
                           CONNECT WITH US
                         </h4>
                         <ul class="">
@@ -256,7 +256,7 @@ const Navbar = () => {
                       </div>
 
                       <div>
-                        <h4 class="text-gray-400 font-semibold mb-4 hover:underline text-sm md:text-lg ">
+                        <h4 class="text-gray-400 font-semibold mb-4 hover:underline text-xs md:text-lg ">
                           NITTY GRITTIES
                         </h4>
                         <ul class="">
@@ -288,7 +288,7 @@ const Navbar = () => {
                       </div>
 
                       <div>
-                        <h4 class="text-gray-400 font-semibold mb-4 hover:underline text-sm md:text-lg ">
+                        <h4 class="text-gray-400 font-semibold mb-4 hover:underline text-xs md:text-lg ">
                           GET STARTED
                         </h4>
                         <ul class="">
