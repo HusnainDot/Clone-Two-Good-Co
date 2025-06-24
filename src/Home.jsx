@@ -4,7 +4,7 @@ import Navbar from "./assets/components/Navbar";
 const Home = () => {
   return (
     <>
-      <div className="w-full px-3 md:px-5 mx-auto  ">
+      <div className="w-full mx-auto  ">
         {/* Nav bar */}
         
 
