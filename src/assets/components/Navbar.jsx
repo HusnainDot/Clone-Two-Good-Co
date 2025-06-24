@@ -351,7 +351,7 @@ const Navbar = () => {
 
               <div
                 className={`absolute left-[0%] top-0 w-[100%] transition-all duration-500 overflow-hidden ${
-                  isCartOpen ? "h-auto z-[-999]" : "h-0 z-0"
+                  isCartOpen ? "h-[60vh] z-[-999]" : "h-0 z-0"
                 }  bg-black  `}
               >
                 <div className=" pt-40 w-full  relative ">
