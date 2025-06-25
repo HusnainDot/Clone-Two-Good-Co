@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Navbar from "./assets/components/Navbar";
 import HeroSection from "./assets/components/HeroSection";
 import gsap from "gsap/gsap-core";
+import VideoSection from "./assets/components/VideoSection";
 
 const Home = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -24,20 +25,20 @@ const Home = () => {
   useEffect(() => {
 
 
-    gsap.fromTo(
-      navRef.current,
-      {
-        y: -20,
-        opacity: 0,
-      },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.5,
-        delay: 0.7,
-        ease: "power3.out",
-      }
-    );
+    // gsap.fromTo(
+    //   navRef.current,
+    //   {
+    //     y: -20,
+    //     opacity: 0,
+    //   },
+    //   {
+    //     y: 0,
+    //     opacity: 1,
+    //     duration: 0.5,
+    //     delay: 0.7,
+    //     ease: "power3.out",
+    //   }
+    // );
 
 
 
@@ -56,7 +57,9 @@ const Home = () => {
 
         <HeroSection height={ navHight} />
       
-        <div className="w-full h-screen bg-white"></div>
+        <VideoSection/>
+
+        <div className="w-full h-screen bg-teal-950"></div>
       </div>
     </>
   );
