@@ -8,7 +8,6 @@ import productOneItemtwo from "../images/product1-item2.avif";
 import productTwo from "../images/Product2.avif";
 import producttwoItemone from "../images/product2-item1.avif";
 import producttwoItemTwo from "../images/product2-item2.avif";
-import productThree from "../images/product3.avif";
 import productThreeitem from "../images/product3-item1.avif";
 import { FaAngleRight } from "react-icons/fa";
 
@@ -16,42 +15,46 @@ gsap.registerPlugin(ScrollTrigger); // ✅ Register ScrollTrigger at the top
 
 const ProductsSection = () => {
 
-    useEffect(() => {   ScrollTrigger.matchMedia({
-      // ✅ Large screens (lg and up)
-      "(min-width: 1024px)": () => {
-        gsap.utils.toArray(".products").forEach((product) => {
-          gsap.to(product, {
-            yPercent: 1000,
-            ease: "none",
-            scrollTrigger: {
-              trigger: product,
-              start: "top 80%",
-              end: "top 20%",
-              scrub: true,
-              markers: true,
-            },
-          });
-        });
-      },
+    useEffect(() => {
+      const products = gsap.utils.toArray(".products");
 
-      // ✅ Medium and smaller screens (less than 1024px)
-      "(max-width: 1023px)": () => {
-        gsap.utils.toArray(".products").forEach((product) => {
-          gsap.to(product, {
-            yPercent: 200,
-            ease: "none",
-            scrollTrigger: {
-              trigger: product,
-              start: "top 80%",
-              end: "top 20%",
-              scrub: true,
-              markers: true,
-            },
+      ScrollTrigger.matchMedia({
+        "(min-width: 1024px)": () => {
+          products.forEach((product) => {
+            gsap.to(product, {
+              yPercent: 1000,
+              ease: "none",
+              scrollTrigger: {
+                trigger: product,
+                start: "top 80%",
+                end: "top 20%",
+                scrub: true,
+              },
+            });
           });
-        });
-      },
-    });
-    },[])
+        },
+        "(max-width: 1023px)": () => {
+          products.forEach((product) => {
+            gsap.to(product, {
+              yPercent: 200,
+              ease: "none",
+              scrollTrigger: {
+                trigger: product,
+                start: "top 80%",
+                end: "top 20%",
+                scrub: true,
+              },
+            });
+          });
+        },
+      });
+
+      // ✅ Cleanup on component unmount
+      return () => {
+        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      };
+    }, []);
+      
   return (
     <div className="my-10 md:my-20 px-2 md:px-5">
       <div className="flex items-center justify-between">
@@ -159,7 +162,7 @@ const ProductsSection = () => {
           {/* Product Three */}
           <div className="h-[350px] w-full md:w-auto md:h-auto relative">
             <img
-              src={productThree}
+              src={productOne}
               alt=""
               className="w-full h-full object-cover"
             />
