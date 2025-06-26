@@ -3,6 +3,7 @@ import Navbar from "./assets/components/Navbar";
 import HeroSection from "./assets/components/HeroSection";
 import gsap from "gsap/gsap-core";
 import VideoSection from "./assets/components/VideoSection";
+import ProductsSection from "./assets/components/ProductsSection";
 
 const Home = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -12,7 +13,7 @@ const Home = () => {
   const handelScrollBar = () => {
     const hight = navRef.current?.offsetHeight || 0;
 
-    setnavHight(hight)
+    setnavHight(hight);
     const scrollPosition = window.scrollY;
 
     if (scrollPosition > navHight) {
@@ -23,8 +24,6 @@ const Home = () => {
   };
 
   useEffect(() => {
-
-
     // gsap.fromTo(
     //   navRef.current,
     //   {
@@ -40,8 +39,6 @@ const Home = () => {
     //   }
     // );
 
-
-
     handelScrollBar();
     window.addEventListener("scroll", handelScrollBar);
 
@@ -50,15 +47,14 @@ const Home = () => {
 
   return (
     <>
-      <div className="w-full mx-auto  ">
+      <div className="w-full mx-auto bg-[#eeeeee]  ">
         {/* Nav bar */}
 
         <Navbar navRef={navRef} scrolled={scrolled} />
 
-        <HeroSection height={ navHight} />
-      
-        <VideoSection/>
-
+        <HeroSection height={navHight} />
+        <VideoSection />
+        <ProductsSection />
         <div className="w-full h-screen bg-teal-950"></div>
       </div>
     </>

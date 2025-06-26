@@ -29,6 +29,20 @@ const VideoSection = () => {
       opacity: 0,
     });
   };
+  const text = useRef(null);
+  const mousetext = () => {
+    gsap.fromTo(
+      text.current,
+      {
+        width:"0"
+      },
+      {
+        width:"100%",
+        duration: 0.5,
+        ease: "none",
+      }
+    );
+  };
 
   return (
     <div className="px-5 w-full my-5 relative">
@@ -64,14 +78,14 @@ const VideoSection = () => {
 
           <div className="flex flex-col items-center justify-center w-fit mx-auto pt-5 ">
             <a
-
+              onMouseEnter={mousetext}
               href="#"
               className="text-md uppercase font-mono  text-center cursor-pointer"
             >
               learn more today
             </a>
 
-            <div className={`bg-gray-500 w-full h-[1px]  transition-all duration-200 hover: `}></div>
+            <div ref={text} className={`bg-gray-500 w-full h-[1.5px]  `}></div>
           </div>
         </div>
       </div>

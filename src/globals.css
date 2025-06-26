@@ -8,10 +8,39 @@
   --font-primary-font: primary-font, "sans-serif";
 }
 
-
-
-
-*::selection{
+*::selection {
   color: white;
   background-color: black;
+}
+
+.product-items {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.5s ease;
+  width: 100%;
+}
+
+.products:hover .product-items {
+  padding: 10px ;
+  height: 200px;
+  justify-content: center;
+}
+
+/* Optional: Animate items inside */
+.product-items img {
+  transform: scale(0);
+  transition: transform 0.5s ease;
+}
+
+.products:hover .product-items img {
+  transform: scale(1);
+}
+
+.product-items h4 {
+  transform: scale(0);
+  transition: transform 0.5s ease;
+}
+
+.products:hover .product-items h4 {
+  transform: scale(1);
 }
