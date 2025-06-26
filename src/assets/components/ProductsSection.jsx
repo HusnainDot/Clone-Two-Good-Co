@@ -18,42 +18,30 @@ const ProductsSection = () => {
     useEffect(() => {
       const products = gsap.utils.toArray(".products");
 
-      ScrollTrigger.matchMedia({
-        "(min-width: 1024px)": () => {
-          products.forEach((product) => {
-            gsap.to(product, {
-              yPercent: 1000,
-              ease: "none",
-              scrollTrigger: {
-                trigger: product,
-                start: "top 80%",
-                end: "top 20%",
-                scrub: true,
-              },
-            });
-          });
-        },
-        "(max-width: 1023px)": () => {
-          products.forEach((product) => {
-            gsap.to(product, {
-              yPercent: 200,
-              ease: "none",
-              scrollTrigger: {
-                trigger: product,
-                start: "top 80%",
-                end: "top 20%",
-                scrub: true,
-              },
-            });
-          });
-        },
-      });
+      const scrollAnimations = () => {
+        const isLargeScreen = window.innerWidth >= 1024;
 
-      // ✅ Cleanup on component unmount
-      return () => {
-        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+        products.forEach((product) => {
+          gsap.to(product, {
+            yPercent: isLargeScreen ? 1000 : 200,
+            ease: "none",
+            scrollTrigger: {
+              trigger: product,
+              start: "top 80%",
+              end: "top 20%",
+              scrub: true,
+            },
+          });
+        });
       };
+
+      scrollAnimations();
+
+  
+
+      
     }, []);
+      
       
   return (
     <div className="my-10 md:my-20 px-2 md:px-5">
