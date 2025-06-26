@@ -11,38 +11,43 @@ import producttwoItemTwo from "../images/product2-item2.avif";
 import productThreeitem from "../images/product3-item1.avif";
 import { FaAngleRight } from "react-icons/fa";
 
-gsap.registerPlugin(ScrollTrigger); // ✅ Register ScrollTrigger at the top
+gsap.registerPlugin(ScrollTrigger);
 
 const ProductsSection = () => {
+  useEffect(() => {
+    const products = gsap.utils.toArray(".products");
 
-    useEffect(() => {
-      const products = gsap.utils.toArray(".products");
+    const scrollAnimations = () => {
+      const isLargeScreen = window.innerWidth >= 1024;
 
-      const scrollAnimations = () => {
-        const isLargeScreen = window.innerWidth >= 1024;
-
-        products.forEach((product) => {
-          gsap.to(product, {
-            yPercent: isLargeScreen ? 1000 : 200,
-            ease: "none",
-            scrollTrigger: {
-              trigger: product,
-              start: "top 80%",
-              end: "top 20%",
-              scrub: true,
-            },
-          });
+      products.forEach((product) => {
+        gsap.to(product, {
+          yPercent: isLargeScreen ? 700 : 400,
+          ease: "none",
+          scrollTrigger: {
+            trigger: product,
+            start: "top bottom",
+            end: "top 10%",
+            scrub: true,
+          },
         });
-      };
+      });
+    };
 
+    scrollAnimations();
+
+    const handleResize = () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       scrollAnimations();
+    };
+    window.addEventListener("resize", handleResize);
 
-  
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
-      
-    }, []);
-      
-      
   return (
     <div className="my-10 md:my-20 px-2 md:px-5">
       <div className="flex items-center justify-between">
@@ -60,7 +65,7 @@ const ProductsSection = () => {
               alt=""
               className="w-full h-full object-cover"
             />
-            <div className="absolute top-[35%] left-1/2 transform -translate-x-1/2  w-[300px] font-mono products">
+            <div className="absolute top-[10%] md:top-[35%] left-1/2 transform -translate-x-1/2  w-[300px] font-mono products">
               <div className="relative">
                 <div className="flex items-center justify-evenly w-full h-full bg-[#DCC0B4] py-2.5 rounded-full">
                   <span className="bg-black h-[8px] w-[8px] rounded-full"></span>
@@ -107,7 +112,7 @@ const ProductsSection = () => {
               alt=""
               className="w-full h-full object-cover"
             />
-            <div className="absolute top-[35%] left-1/2 transform -translate-x-1/2  w-[300px] font-mono products">
+            <div className="absolute top-[10%] md:top-[35%]  left-1/2 transform -translate-x-1/2  w-[300px] font-mono products">
               <div className="relative">
                 <div className="flex items-center justify-evenly w-full h-full bg-[#DCC0B4] py-2.5 rounded-full">
                   <span className="bg-black h-[8px] w-[8px] rounded-full"></span>
@@ -154,7 +159,7 @@ const ProductsSection = () => {
               alt=""
               className="w-full h-full object-cover"
             />
-            <div className="absolute top-[35%] left-1/2 transform -translate-x-1/2  w-[300px] font-mono products">
+            <div className="absolute top-[10%] md:top-[35%]  left-1/2 transform -translate-x-1/2  w-[300px] font-mono products">
               <div className="relative">
                 <div className="flex items-center justify-evenly w-full h-full bg-[#DCC0B4] py-2.5 rounded-full">
                   <span className="bg-black h-[8px] w-[8px] rounded-full"></span>
@@ -177,6 +182,33 @@ const ProductsSection = () => {
                   </h4>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex flex-col lg:flex-row items-center lg:justify-between my-5">
+          <div className="">
+            <h4 className="text-6xl font-bold text-center lg:text-left lg:max-w-[700px]">
+              We believe in people, until they believe in themselves again.
+            </h4>
+          </div>
+
+          <div className="w-[35%]">
+            <p className="font-">
+              Everything we do is designed to rebuild self worth and
+              independence, in order to break free from the cycle of
+              disadvantage.
+            </p>
+
+            <p className="font-">
+              With every purchase you make with us, you're helping to change the
+              course of someone's life; you're walking alongside vulnerable
+              women as they find their way home again.
+            </p>
+
+            <div>
+                          <h5 className="font-mono uppercase text-gray-600">Shop to Support</h5>
+                          <span className="w-full h-[1px] bg-gray-600"></span>
             </div>
           </div>
         </div>

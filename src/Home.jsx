@@ -24,20 +24,20 @@ const Home = () => {
   };
 
   useEffect(() => {
-    // gsap.fromTo(
-    //   navRef.current,
-    //   {
-    //     y: -20,
-    //     opacity: 0,
-    //   },
-    //   {
-    //     y: 0,
-    //     opacity: 1,
-    //     duration: 0.5,
-    //     delay: 0.7,
-    //     ease: "power3.out",
-    //   }
-    // );
+    gsap.fromTo(
+      navRef.current,
+      {
+        y: -20,
+        opacity: 0,
+      },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.5,
+        delay: 0.7,
+        ease: "power3.out",
+      }
+    );
 
     handelScrollBar();
     window.addEventListener("scroll", handelScrollBar);

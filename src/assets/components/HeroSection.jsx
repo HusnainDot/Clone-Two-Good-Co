@@ -7,21 +7,21 @@ const HeroSection = ({ height }) => {
   
   useEffect(() => {
     const elements = textRef.current.querySelectorAll("span");
-    // gsap.fromTo(
-    //   elements,
-    //   {
-    //     y: 120,
-    //     opacity: 0,
-    //   },
-    //   {
-    //     y: 0,
-    //     opacity: 1,
-    //     duration: 0.5,
-    //     delay: 0.8,
-    //     stagger: 0.2,
-    //     ease: "power3.out",
-    //   }
-    // );
+    gsap.fromTo(
+      elements,
+      {
+        y: 120,
+        opacity: 0,
+      },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.5,
+        delay: 0.8,
+        stagger: 0.2,
+        ease: "power3.out",
+      }
+    );
   }, []);
 
   return (
