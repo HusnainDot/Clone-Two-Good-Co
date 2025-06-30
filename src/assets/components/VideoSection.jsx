@@ -16,8 +16,8 @@ const VideoSection = () => {
 
   const mouseMove = (dets) => {
     gsap.to(mouse.current, {
-      left: dets.clientX - 20,
-      top: dets.clientY - 20,
+      left: dets.clientX - 50,
+      top: dets.clientY - 50,
       duration: 0.3,
       ease: "power2.out",
     });
@@ -60,7 +60,7 @@ const VideoSection = () => {
 
         <div
           ref={mouse}
-          className="w-[100px] h-[100px] top-0 left-0 bg-black z-10 absolute rounded-full opacity-0 scale-0 flex items-center justify-center font-semibold text-2xl text-white "
+          className="w-[100px] h-[100px] top-0 left-0 bg-black z-10 fixed rounded-full opacity-0 scale-0 flex items-center justify-center font-semibold text-2xl text-white "
         >
           play
         </div>
